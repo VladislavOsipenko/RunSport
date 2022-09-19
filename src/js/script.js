@@ -1,18 +1,35 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
         speed: 1200,
-       /*  adaptiveHeight: true, */
+        
+/*         adaptiveHeight: true, */
         prevArrow:'<button type="button" class="slick-prev"><img src="icons/chevron-left.png"></button>',
         nextArrow:'<button type="button" class="slick-next"><img src="icons/chevron-right.png"></button>',
         responsive: [
             {
                 breakpoint: 992,
                 settings: {
-                    dots: true,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    
+                }
+            },
+/*             {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false,
                     arrows: false
                 }
-            }
+            } */
         ]
+
     });
 
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
