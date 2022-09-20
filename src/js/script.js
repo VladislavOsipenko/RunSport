@@ -19,15 +19,6 @@ $(document).ready(function(){
                     
                 }
             },
-/*             {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    dots: false,
-                    arrows: false
-                }
-            } */
         ]
 
     });
@@ -51,4 +42,23 @@ $(document).ready(function(){
 
     togglSlide('.catalog-item__link');
     togglSlide('.catalog-item__back');
-    });    
+
+    //modal
+    $('[data-modal=consultation]').on('click', function() {
+        $('.overlay, #consultation').fadeIn('slow');
+    });
+
+    $('.modal__close').on('click', function() {
+        $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+    });
+
+
+
+    $('.button_mini').each(function(i) {
+        $(this).on('click', function() {
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn('slow');
+        })
+    });
+
+});    
